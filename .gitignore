@@ -5,4 +5,6 @@ build
 database.sqlite
 node_modules
 ncp-debug.log
+/docs
 npm-debug.log
+/.idea
