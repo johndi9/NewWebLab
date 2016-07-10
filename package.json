@@ -1,27 +1,18 @@
 {
-  "name": "PersonalSite",
+  "name": "NewWebLab",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
   "directories": {
     "doc": "docs"
   },
-  "scripts": {
-    "test": "",
-    "start": "babel-node server",
-    "hot-start": "webpack-dev-server --devtool eval --hot --progress --colors --config ./webpack.cssHotReload.config.js",
-    "build": "webpack --progress --profile --colors --config ./webpack.production.config.js",
-    "eslint": "eslint .",
-    "jscs": "jscs ."
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/johndi9/PersonalSite"
+    "url": "https://github.com/johndi9/NewWebLab"
   },
   "author": "Juan Diego de Miguel",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/johndi9/PersonalSite/issues"
+    "url": "https://github.com/johndi9/NewWebLab/issues"
   },
   "private": true,
   "engines": {

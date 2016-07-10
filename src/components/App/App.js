@@ -10,9 +10,9 @@
 import React, { Component, PropTypes } from 'react';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import s from './App.css';
-import Header from '../Header';
-import Feedback from '../Feedback';
-import Footer from '../Footer';
+import Header from '../common/Header';
+import Feedback from '../common/Feedback';
+import Footer from '../common/Footer';
 
 class App extends Component {
 

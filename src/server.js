@@ -21,7 +21,7 @@ import PrettyError from 'pretty-error';
 import passport from './core/passport';
 import models from './data/models';
 import schema from './data/schema';
-import routes from './routes';
+import routes from './components/pages';
 import assets from './assets'; // eslint-disable-line import/no-unresolved
 import { port, auth, analytics } from './config';
 
