@@ -1,0 +1,13 @@
+/*
+ * This file contains ONLY imports to common files
+ */
+
+// Import everything in variables
+@import 'variables/_variables';
+
+// Import bootstrap framework from node_modules
+@import '~bootstrap/scss/bootstrap';
+
+// Import common styles
+@import 'common';
+

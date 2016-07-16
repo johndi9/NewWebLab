@@ -1,0 +1,19 @@
+/*
+ * Custom variables
+ */
+
+// Import colors
+@import 'list-of-colors';
+@import 'color-associations';
+
+// Overwrite bootstrap variables with the custom ones
+@import 'bootstrap-variables';
+
+// Import variables: contains non color variables
+@import 'custom-variables';
+
+// Import global mixins
+@import 'mixins';
+
+// Import global functions
+@import 'functions';

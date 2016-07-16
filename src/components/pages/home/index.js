@@ -27,8 +27,13 @@ export default {
       }),
       credentials: 'include',
     });
+
     const { data } = await resp.json();
-    if (!data || !data.news) throw new Error('Failed to load the news feed.');
+
+    if (!data || !data.news) {
+      throw new Error('Failed to load the news feed.');
+    }
+
     return <Home news={data.news} />;
   },
 

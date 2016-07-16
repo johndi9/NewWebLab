@@ -21,6 +21,7 @@ import {
   windowScrollY,
 } from './core/DOMUtils';
 
+
 const context = {
   insertCss: (...styles) => {
     const removeCss = styles.map(style => style._insertCss()); // eslint-disable-line no-underscore-dangle, max-len

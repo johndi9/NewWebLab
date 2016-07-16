@@ -1,0 +1,10 @@
+/*
+ * This file should be imported on every component SASS file - Will allow us to re-use the bootstrap files
+ */
+
+// Import everything in variables
+@import 'variables/_variables';
+
+// Import bootstrap variables and mixins
+@import '~bootstrap/scss/_variables.scss';
+@import '~bootstrap/scss/_mixins.scss';

@@ -9,7 +9,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import emptyFunction from 'fbjs/lib/emptyFunction';
-import s from './App.css';
+import s from '../../../src/assets/scss/index.scss';
 import Header from '../common/Header';
 import Feedback from '../common/Feedback';
 import Footer from '../common/Footer';

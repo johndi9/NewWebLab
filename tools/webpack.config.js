@@ -28,6 +28,7 @@ const GLOBALS = {
   'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
   __DEV__: DEBUG,
 };
+const helperScssPath = path.resolve(__dirname, '../src/assets/scss');
 
 //
 // Common configuration chunk to be used for both
@@ -89,10 +90,26 @@ const config = {
         ],
       },
       {
-        test: /\.scss$/,
+        test: /index\.scss$/, // Common styles without CSS Modules (only one entry point -> index.scss)
         loaders: [
           'isomorphic-style-loader',
           `css-loader?${JSON.stringify({ sourceMap: DEBUG, minimize: !DEBUG })}`,
+          'postcss-loader?pack=sass',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /^((?!index).)*\.scss$/, // Styles for each module
+        loaders: [
+          'isomorphic-style-loader',
+          `css-loader?${JSON.stringify({
+            sourceMap: DEBUG,
+            // CSS Modules https://github.com/css-modules/css-modules
+            modules: true,
+            localIdentName: DEBUG ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
+            // CSS Nano http://cssnano.co/options/
+            minimize: !DEBUG,
+          })}`,
           'postcss-loader?pack=sass',
           'sass-loader',
         ],
@@ -146,6 +163,11 @@ const config = {
     chunkModules: VERBOSE,
     cached: VERBOSE,
     cachedAssets: VERBOSE,
+  },
+
+  sassLoader: {
+    // This prop will allow us to solve the external dependencies from the SASS files
+    includePaths: [helperScssPath],
   },
 
   postcss(bundler) {
