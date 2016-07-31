@@ -21,6 +21,7 @@ import {
   windowScrollY,
 } from './core/DOMUtils';
 
+require('font-awesome-sass-loader');
 
 const context = {
   insertCss: (...styles) => {

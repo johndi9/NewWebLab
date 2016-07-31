@@ -93,9 +93,9 @@ const config = {
         test: /index\.scss$/, // Common styles without CSS Modules (only one entry point -> index.scss)
         loaders: [
           'isomorphic-style-loader',
-          `css-loader?${JSON.stringify({ sourceMap: DEBUG, minimize: !DEBUG })}`,
+          `css-loader?${JSON.stringify({sourceMap: DEBUG, minimize: !DEBUG})}`,
           'postcss-loader?pack=sass',
-          'sass-loader',
+          'sass-loader'
         ],
       },
       {
@@ -111,7 +111,7 @@ const config = {
             minimize: !DEBUG,
           })}`,
           'postcss-loader?pack=sass',
-          'sass-loader',
+          'sass-loader'
         ],
       },
       {
@@ -136,6 +136,14 @@ const config = {
         query: {
           name: DEBUG ? '[path][name].[ext]?[hash]' : '[hash].[ext]',
         },
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=10000&minetype=application/font-woff"
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
       },
       {
         test: /\.jade$/,
@@ -175,7 +183,7 @@ const config = {
       default: [
         // Transfer @import rule by inlining content, e.g. @import 'normalize.css'
         // https://github.com/postcss/postcss-import
-        require('postcss-import')({ addDependencyTo: bundler }),
+        require('postcss-import')({addDependencyTo: bundler}),
         // W3C variables, e.g. :root { --color: red; } div { background: var(--color); }
         // https://github.com/postcss/postcss-custom-properties
         require('postcss-custom-properties')(),
@@ -211,10 +219,10 @@ const config = {
         require('postcss-selector-not')(),
         // Add vendor prefixes to CSS rules using values from caniuse.com
         // https://github.com/postcss/autoprefixer
-        require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
+        require('autoprefixer')({browsers: AUTOPREFIXER_BROWSERS}),
       ],
       sass: [
-        require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
+        require('autoprefixer')({browsers: AUTOPREFIXER_BROWSERS}),
       ],
     };
   },
@@ -230,6 +238,7 @@ const clientConfig = extend(true, {}, config, {
   output: {
     filename: DEBUG ? '[name].js?[chunkhash]' : '[name].[chunkhash].js',
     chunkFilename: DEBUG ? '[name].[id].js?[chunkhash]' : '[name].[id].[chunkhash].js',
+
   },
 
   target: 'web',
@@ -238,7 +247,7 @@ const clientConfig = extend(true, {}, config, {
 
     // Define free variables
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
-    new webpack.DefinePlugin({ ...GLOBALS, 'process.env.BROWSER': true }),
+    new webpack.DefinePlugin({...GLOBALS, 'process.env.BROWSER': true}),
 
     // Emit a file with assets paths
     // https://github.com/sporto/assets-webpack-plugin#options
@@ -297,9 +306,7 @@ const serverConfig = extend(true, {}, config, {
     /^\.\/assets$/,
     function filter(context, request, cb) {
       const isExternal =
-        request.match(/^[@a-z][a-z\/\.\-0-9]*$/i) &&
-        !request.match(/^react-routing/) &&
-        !context.match(/[\\/]react-routing/);
+        request.match(/^[@a-z][a-z\/\.\-0-9]*$/i) && !request.match(/^react-routing/) && !context.match(/[\\/]react-routing/);
       cb(null, Boolean(isExternal));
     },
   ],
@@ -308,12 +315,12 @@ const serverConfig = extend(true, {}, config, {
 
     // Define free variables
     // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
-    new webpack.DefinePlugin({ ...GLOBALS, 'process.env.BROWSER': false }),
+    new webpack.DefinePlugin({...GLOBALS, 'process.env.BROWSER': false}),
 
     // Adds a banner to the top of each generated chunk
     // https://webpack.github.io/docs/list-of-plugins.html#bannerplugin
     new webpack.BannerPlugin('require("source-map-support").install();',
-      { raw: true, entryOnly: false }),
+      {raw: true, entryOnly: false}),
   ],
 
   node: {

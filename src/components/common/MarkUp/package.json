@@ -1,0 +1,6 @@
+{
+  "name": "Markup",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Markup.js"
+}
