@@ -123,7 +123,7 @@ const config = {
         loader: 'raw-loader',
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+        test: /\.(png|jpg|jpeg|gif)$/,
         loader: 'url-loader',
         query: {
           name: DEBUG ? '[path][name].[ext]?[hash]' : '[hash].[ext]',
@@ -131,12 +131,18 @@ const config = {
         },
       },
       {
-        test: /\.(eot|ttf|wav|mp3)$/,
+        test: /\.(wav|mp3)$/,
         loader: 'file-loader',
         query: {
           name: DEBUG ? '[path][name].[ext]?[hash]' : '[hash].[ext]',
         },
       },
+      // support for fonts files
+      {test: /\.woff(\?.*)?$/, loader: 'url?mimetype=application/font-woff'},
+      {test: /\.woff2(\?.*)?$/, loader: 'url?mimetype=application/font-woff2'},
+      {test: /\.ttf(\?.*)?$/, loader: 'url?mimetype=application/vnd.ms-fontobject'},
+      {test: /\.eot(\?.*)?$/, loader: 'url?mimetype=application/x-font-ttf'},
+      {test: /\.svg(\?.*)?$/, loader: 'url?mimetype=image/svg+xml'},
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: "url-loader?limit=10000&minetype=application/font-woff"

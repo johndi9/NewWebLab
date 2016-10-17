@@ -1,0 +1,52 @@
+$roboto-path: '../fonts/roboto/';
+
+@mixin roboto-mixin($roboto-type, $font-style, $font-weight, $local-1, $local-2) {
+  @font-face {
+    font-family: $local-2;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    src: url('#{$roboto-path}roboto-v15-#{$roboto-type}.eot'); /* IE9 Compat Modes */
+    src: local($local-1), local($local-2),
+    url('#{$roboto-path}roboto-v15-#{$roboto-type}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('#{$roboto-path}roboto-v15-#{$roboto-type}.woff2') format('woff2'), /* Super Modern Browsers */
+    url('#{$roboto-path}roboto-v15-#{$roboto-type}.woff') format('woff'), /* Modern Browsers */
+    url('#{$roboto-path}roboto-v15-#{$roboto-type}.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('#{$roboto-path}roboto-v15-#{$roboto-type}.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
+}
+
+/* roboto-100 - latin */
+@include roboto-mixin('latin-100', normal, 100, 'Roboto Thin', 'Roboto-Thin');
+
+/* roboto-100italic - latin */
+@include roboto-mixin('latin-100italic', italic, 100, 'Roboto Thin Italic', 'Roboto-ThinItalic');
+
+/* roboto-300 - latin */
+@include roboto-mixin('latin-300', normal, 300, 'Roboto Light', 'Roboto-Light');
+
+/* roboto-300italic - latin */
+@include roboto-mixin('latin-300italic', italic, 300, 'Roboto Light Italic', 'Roboto-LightItalic');
+
+/* roboto-regular - latin */
+@include roboto-mixin('latin-regular', normal, 400, 'Roboto', 'Roboto-Regular');
+
+/* roboto-italic - latin */
+@include roboto-mixin('latin-italic', italic, 400, 'Roboto Italic', 'Roboto-Italic');
+
+/* roboto-500 - latin */
+@include roboto-mixin('latin-500', normal, 500, 'Roboto Medium', 'Roboto-Medium');
+
+/* roboto-500italic - latin */
+@include roboto-mixin('latin-500italic', italic, 500, 'Roboto Medium Italic', 'Roboto-MediumItalic');
+
+/* roboto-700 - latin */
+@include roboto-mixin('latin-700', normal, 700, 'Roboto Bold', 'Roboto-Bold');
+
+/* roboto-700italic - latin */
+@include roboto-mixin('latin-700italic', italic, 700, 'Roboto Bold Italic', 'Roboto-BoldItalic');
+
+/* roboto-900 - latin */
+@include roboto-mixin('latin-900', normal, 900, 'Roboto Black', 'Roboto-Black');
+
+/* roboto-900italic - latin */
+@include roboto-mixin('latin-900italic', italic, 900, 'Roboto Black Italic', 'Roboto-BlackItalic');

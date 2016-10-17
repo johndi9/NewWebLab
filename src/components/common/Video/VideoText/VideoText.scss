@@ -1,3 +1,5 @@
+@import 'helpers';
+
 .videoTextContainer {
   position: absolute;
   top: 50%;
@@ -7,9 +9,9 @@
   .content {
     width: 100%;
     font-size: 88px;
-    font-family: 'Roboto', sans-serif;
+    font-family: $roboto-thin;
     .videoText {
-      font-family: 'Roboto-Light', 'sans-serif', 'serif';
+      font-family: $roboto-thin;
     }
   }
 }

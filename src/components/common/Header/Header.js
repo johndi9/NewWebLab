@@ -8,7 +8,7 @@ import VideoText from '../Video/VideoText/VideoText';
 
 function Header() {
   return (
-    <nav class="navbar navbar-static-top container" role="banner">
+    <nav className="" role="banner">
       <div>
         <VideoWrapper/>
         <VideoText/>
